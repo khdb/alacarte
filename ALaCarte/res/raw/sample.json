@@ -1,0 +1,316 @@
+{
+  "shop": [
+    {
+      "nfcid": 1,
+      "title": "Buffet Tối Tại Golden Central Hotel 4 sao",
+      "address": "140 Lý Tự Trọng P.Bến Thành,  Q.1,  Hồ Chí Minh",
+      "phone": "083113113",
+      "menu": [
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        }
+      ]
+    },
+    {
+      "nfcid": 1,
+      "title": "Buffet Tối Tại Golden Central Hotel 4 sao",
+      "address": "140 Lý Tự Trọng P.Bến Thành,  Q.1,  Hồ Chí Minh",
+      "phone": "083113113",
+      "menu": [
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        }
+      ]
+    },
+    {
+      "nfcid": 1,
+      "title": "Buffet Tối Tại Golden Central Hotel 4 sao",
+      "address": "140 Lý Tự Trọng P.Bến Thành,  Q.1,  Hồ Chí Minh",
+      "phone": "083113113",
+      "menu": [
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        },
+        {
+          "name": "Cafe",
+          "price": "34.000",
+          "description": "cafe rang xay",
+          "image": "http://photos.kay.com.vn/Photos/Deals/2013/11/3071/WaterMark/608x298/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "nfcid": "bb-soya-pudding",
+  "title": "Bb Soya Pudding",
+  "address": "172 Bùi Thị Xuân P.Phạm Ngũ Lão,  Q.1,  Hồ Chí Minh",
+  "menu": [
+    {
+      "name": "Bánh rau củ phô mai",
+      "price": "125.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913420353.jpg"
+    },
+    {
+      "name": "Salad Địa Trung Hải tươi mát",
+      "price": "150.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913421133.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "125.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913421983.jpg"
+    },
+    {
+      "name": "Ức gà kẹp phô mai nướng",
+      "price": "25.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913422784.jpg"
+    },
+    {
+      "name": "Chocolate Crinkles - Những con mắt",
+      "price": "125.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913423588.jpg"
+    },
+    {
+      "name": "Bánh rau củ phô mai",
+      "price": "25.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913424385.jpg"
+    },
+    {
+      "name": "Mỳ Ý sốt cà chua",
+      "price": "70.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913425186.jpg"
+    },
+    {
+      "name": "Chocolate Crinkles - Những con mắt",
+      "price": "50.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913425993.jpg"
+    },
+    {
+      "name": "Salad Địa Trung Hải tươi mát",
+      "price": "65.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913426792.jpg"
+    },
+    {
+      "name": "Chè khúc bạch phô mai",
+      "price": "140.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913427587.jpg"
+    },
+    {
+      "name": "Xôi đậu xanh sườn nướng",
+      "price": "125.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913428324.jpg"
+    },
+    {
+      "name": "Ức gà kẹp phô mai nướng",
+      "price": "30.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_201311291342956.jpg"
+    },
+    {
+      "name": "Salad Địa Trung Hải tươi mát",
+      "price": "65.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913429793.jpg"
+    },
+    {
+      "name": "Bánh rau củ phô mai",
+      "price": "140.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_20131129134210589.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "65.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_20131129134211325.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "125.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_2013112913421258.jpg"
+    },
+    {
+      "name": "Ức gà kẹp phô mai nướng",
+      "price": "50.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_20131129134212868.jpg"
+    },
+    {
+      "name": "Xôi đậu xanh sườn nướng",
+      "price": "150.000",
+      "image": "http://thegioinfc.com:8080/images/food/bb-soya-pudding/bb_soya_pudding_20131129134213669.jpg"
+    }
+  ]
+}

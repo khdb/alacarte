@@ -1,0 +1,62 @@
+{
+  "nfcid": "buffet-trua-tai-golden-central-hotel",
+  "title": "Buffet Trưa Tại Golden Central Hotel 4 sao",
+  "address": "140 Lý Tự Trọng P.Bến Thành,  Q.1,  Hồ Chí Minh",
+  "menu": [
+    {
+      "name": "Xôi đậu xanh sườn nướng",
+      "price": "125.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104126156.jpg"
+    },
+    {
+      "name": "Mỳ Ý sốt cà chua",
+      "price": "150.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104127138.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "65.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_2013112510412859.jpg"
+    },
+    {
+      "name": "Salad Địa Trung Hải tươi mát",
+      "price": "135.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104128998.jpg"
+    },
+    {
+      "name": "Chocolate Crinkles - Những con mắt",
+      "price": "50.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104129936.jpg"
+    },
+    {
+      "name": "Bánh rau củ phô mai",
+      "price": "140.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104130943.jpg"
+    },
+    {
+      "name": "Chè khúc bạch phô mai",
+      "price": "70.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104131944.jpg"
+    },
+    {
+      "name": "Bánh rau củ phô mai",
+      "price": "50.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104133770.jpg"
+    },
+    {
+      "name": "Chân giò hun khói cuộn xoài xanh",
+      "price": "70.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104135855.jpg"
+    },
+    {
+      "name": "Mỳ Ý sốt cà chua",
+      "price": "25.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104137714.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "135.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-trua-tai-golden-central-hotel/buffet_trua_tai_golden_central_hotel_20131125104139222.jpg"
+    }
+  ]
+}
