@@ -39,7 +39,7 @@ public class StaggeredAdapter extends ArrayAdapter<Item> {
 
 		holder = (ViewHolder) convertView.getTag();
 		holder.nameTextView.setText(getItem(position).getName());
-		holder.priceTextView.setText(getItem(position).getPrice());
+		holder.priceTextView.setText(getItem(position).getPrice() + " VNĐ");
 		mLoader.DisplayImage(getItem(position).getImagePath(), holder.imageView);
 		
 		return convertView;

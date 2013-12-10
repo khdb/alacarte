@@ -10,6 +10,9 @@
     <string name="item_name">Title here</string>
     <string name="welcome">Welcome to a la carte. Ready to scan.</string>
 	<string name="item_desc">This Github project provides a pretty near clone of what Google was trying to do with their native staggered GridView. </string>
+	<string name="item_price">00.00 VND</string>
+	<string name="readyToScan">Sẵn sàng quẹt thẻ</string>
+	<string name="seemore">XEM THÊM</string>
 	
 	<string name="hotMenu">Cơn sốt trong tuần</string>
 	<string name="recommendMenu">Gợi ý theo sở thích của bạn</string>

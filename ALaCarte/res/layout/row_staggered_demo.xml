@@ -1,6 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/spotlight_background"
+    android:padding="5sp"
     android:orientation="vertical" >
 
     <TextView
@@ -8,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/item_name"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <com.example.staggeredgridviewdemo.views.ScaleImageView
@@ -15,13 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@null" />
-    
-     <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item_desc" >
-    </TextView>
 
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/item_price"
+        android:textStyle="bold"  >
+    </TextView>
 
 </LinearLayout>

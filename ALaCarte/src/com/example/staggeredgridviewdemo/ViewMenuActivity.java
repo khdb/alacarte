@@ -14,9 +14,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.staggeredgridviewdemo.loader.ImageLoader;
+import com.example.staggeredgridviewdemo.views.ScaleImageView;
 import com.khoahuy.model.Item;
 import com.khoahuy.model.Shop;
 import com.origamilabs.library.views.StaggeredGridView;
@@ -56,7 +59,8 @@ public class ViewMenuActivity extends Activity {
 
 		TextView titleTextView = (TextView) this.findViewById(R.id.title);
 		TextView contactTextView = (TextView) this.findViewById(R.id.contact);
-
+		ImageView shopImage = (ScaleImageView) this.findViewById(R.id.shop_image);
+		
 		int margin = getResources().getDimensionPixelSize(R.dimen.margin);
 
 		gridView.setItemMargin(margin); // set the GridView margin
@@ -68,11 +72,13 @@ public class ViewMenuActivity extends Activity {
 		Bundle packageFromCaller = callerIntent.getBundleExtra("MyPackage");
 		nfcid = packageFromCaller.getString("nfcid");
 		Shop shop = getAndDisplayNFCITem();
-
+		
 		if (shop != null) {
 			titleTextView.setText(shop.getTitle());
-			contactTextView.setText(shop.getAddress() + " - Phone: "
+			contactTextView.setText("Địa chỉ: " + shop.getAddress() + " - Phone: "
 					+ shop.getPhone());
+			ImageLoader mLoader = new ImageLoader(this);
+			mLoader.DisplayImage(shop.getImagePath(), shopImage);
 
 			Item[] array = shop.getMenu().toArray(
 					new Item[shop.getMenu().size()]);

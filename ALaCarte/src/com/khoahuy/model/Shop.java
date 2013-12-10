@@ -12,6 +12,7 @@ public class Shop {
 	private String title;
 	private String address;
 	private String phone;
+	private String imagePath;
 	private List<Item> menu;
 	
 	public static Shop parseFromJson(String jsonString){
@@ -21,7 +22,7 @@ public class Shop {
 			shop.setTitle(jsonObj.getString("title"));
 			shop.setAddress(jsonObj.getString("address"));
 			shop.setPhone(jsonObj.optString("phone","083125235"));
-			
+			shop.setImagePath(jsonObj.getString("image"));
 			JSONArray menuArray = jsonObj.getJSONArray("menu");
 			shop.setMenu(new ArrayList<Item>());
 			for (int i = 0; i < menuArray.length(); i++)
@@ -66,6 +67,14 @@ public class Shop {
 	}
 	public void setMenu(List<Item> menu) {
 		this.menu = menu;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}	
 	
 }

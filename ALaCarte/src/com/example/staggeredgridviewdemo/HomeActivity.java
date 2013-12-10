@@ -16,8 +16,7 @@
  */
 package com.example.staggeredgridviewdemo;
 
-
-
+import com.khoahuy.model.Spotlight;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -37,10 +36,14 @@ public class HomeActivity extends AbstractActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		ListView listview = (ListView) findViewById(R.id.listview);
-        listview.setAdapter(new SpotLightAdapter(this, new String[] { "data1",
-                "data2" }));	
+		Spotlight[] array = { Spotlight.getHotSpotlight(),
+				Spotlight.getRecommendSpotlight(),
+				Spotlight.getFriendSpotlight(), Spotlight.getCouponSpotlight() };
+		listview.setAdapter(new SpotLightAdapter(this, array));
+		nfcid = "4ED859AB";
+		processNfcID();
 	}
 
 	@Override
@@ -61,6 +64,7 @@ public class HomeActivity extends AbstractActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
 	}
 
 	@Override
