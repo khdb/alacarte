@@ -1,11 +1,14 @@
 package com.example.staggeredgridviewdemo;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.staggeredgridviewdemo.loader.ImageLoader;
 import com.example.staggeredgridviewdemo.views.ScaleImageView;
@@ -41,7 +44,6 @@ public class StaggeredAdapter extends ArrayAdapter<Item> {
 		holder.nameTextView.setText(getItem(position).getName());
 		holder.priceTextView.setText(getItem(position).getPrice() + " VNĐ");
 		mLoader.DisplayImage(getItem(position).getImagePath(), holder.imageView);
-		
 		return convertView;
 	}
 

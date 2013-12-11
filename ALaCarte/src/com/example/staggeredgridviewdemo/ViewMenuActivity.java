@@ -14,6 +14,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.example.staggeredgridviewdemo.views.ScaleImageView;
 import com.khoahuy.model.Item;
 import com.khoahuy.model.Shop;
 import com.origamilabs.library.views.StaggeredGridView;
+import com.origamilabs.library.views.StaggeredGridView.OnItemClickListener;
 
 /**
  * 
@@ -42,6 +44,7 @@ public class ViewMenuActivity extends Activity {
 	 */
 
 	private String nfcid;
+	private Item[] arrayItem;
 
 	/**
 	 * This will not work so great since the heights of the imageViews are
@@ -59,8 +62,9 @@ public class ViewMenuActivity extends Activity {
 
 		TextView titleTextView = (TextView) this.findViewById(R.id.title);
 		TextView contactTextView = (TextView) this.findViewById(R.id.contact);
-		ImageView shopImage = (ScaleImageView) this.findViewById(R.id.shop_image);
-		
+		ImageView shopImage = (ScaleImageView) this
+				.findViewById(R.id.shop_image);
+
 		int margin = getResources().getDimensionPixelSize(R.dimen.margin);
 
 		gridView.setItemMargin(margin); // set the GridView margin
@@ -72,21 +76,29 @@ public class ViewMenuActivity extends Activity {
 		Bundle packageFromCaller = callerIntent.getBundleExtra("MyPackage");
 		nfcid = packageFromCaller.getString("nfcid");
 		Shop shop = getAndDisplayNFCITem();
-		
+
 		if (shop != null) {
 			titleTextView.setText(shop.getTitle());
-			contactTextView.setText("Địa chỉ: " + shop.getAddress() + " - Phone: "
-					+ shop.getPhone());
+			contactTextView.setText("Địa chỉ: " + shop.getAddress()
+					+ " - Phone: " + shop.getPhone());
 			ImageLoader mLoader = new ImageLoader(this);
 			mLoader.DisplayImage(shop.getImagePath(), shopImage);
 
-			Item[] array = shop.getMenu().toArray(
-					new Item[shop.getMenu().size()]);
+			arrayItem = shop.getMenu().toArray(new Item[shop.getMenu().size()]);
 			StaggeredAdapter adapter = new StaggeredAdapter(
-					ViewMenuActivity.this, R.id.imageView1, array);
-
+					ViewMenuActivity.this, R.id.imageView1, arrayItem);
 			gridView.setAdapter(adapter);
 			adapter.notifyDataSetChanged();
+			gridView.setOnItemClickListener(new OnItemClickListener() {
+				@Override
+				public void onItemClick(StaggeredGridView parent, View view,
+						int position, long id) {
+					// TODO Auto-generated method stub
+					Log.d("Huy", "Item clicked at: " + position + " - Title = "
+							+ id);
+					gotoDetailItem(position);
+				}
+			});
 		}
 
 		_getLocation();
@@ -99,12 +111,19 @@ public class ViewMenuActivity extends Activity {
 
 	}
 
-	private void displayLocation(Location location) {
-		Toast.makeText(
-				this,
-				"Location: Latitude" + location.getLatitude()
-						+ " - Longitude: " + location.getLongitude(),
-				Toast.LENGTH_SHORT).show();
+	private void gotoDetailItem(int position) {
+		if (position < 0 || position >= arrayItem.length) {
+			Toast.makeText(this, "Cannot load this item.", Toast.LENGTH_SHORT)
+					.show();
+			return;
+		}
+		String itemID = arrayItem[position].getId();
+		Intent myIntent = new Intent(this, ViewItemActivity.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("itemid", itemID);
+		myIntent.setAction(Intent.ACTION_VIEW);
+		myIntent.putExtra("MyPackage", bundle);
+		startActivity(myIntent);
 	}
 
 	private void _getLocation() {

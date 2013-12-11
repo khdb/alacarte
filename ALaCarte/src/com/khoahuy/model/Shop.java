@@ -29,6 +29,7 @@ public class Shop {
 			{
 				JSONObject itemObject = menuArray.getJSONObject(i);
 				Item item = new Item();
+				item.setId(jsonObj.optString("id","null"));
 				item.setName(itemObject.getString("name"));
 				item.setDescription(itemObject.optString("description", ""));
 				item.setPrice(itemObject.getString("price"));

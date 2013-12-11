@@ -38,47 +38,60 @@ containing a value of this type.
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
         public static final int menu_header_boder=0x7f020001;
-        public static final int spotlight_background=0x7f020002;
+        public static final int menu_header_border2=0x7f020002;
+        public static final int spotlight_background=0x7f020003;
     }
     public static final class id {
-        public static final int checkin_button=0x7f0a0006;
-        public static final int comment_button=0x7f0a0008;
-        public static final int contact=0x7f0a0004;
-        public static final int imageView1=0x7f0a0000;
-        public static final int infoTxtCredits=0x7f0a000b;
-        public static final int like_button=0x7f0a0005;
-        public static final int listview=0x7f0a0001;
-        public static final int menu_settings=0x7f0a0011;
-        public static final int name=0x7f0a000f;
-        public static final int price=0x7f0a0010;
-        public static final int share_button=0x7f0a0007;
-        public static final int shop_image=0x7f0a0002;
-        public static final int spot_title=0x7f0a000a;
-        public static final int spotlight_image1=0x7f0a000c;
-        public static final int spotlight_image2=0x7f0a000d;
-        public static final int spotlight_image3=0x7f0a000e;
-        public static final int staggeredGridView1=0x7f0a0009;
-        public static final int title=0x7f0a0003;
+        public static final int cancelButton=0x7f0a0002;
+        public static final int checkin_button=0x7f0a000f;
+        public static final int comment_button=0x7f0a0011;
+        public static final int contact=0x7f0a000d;
+        public static final int footer=0x7f0a0000;
+        public static final int imageView1=0x7f0a0009;
+        public static final int infoTxtCredits=0x7f0a0014;
+        public static final int item_comment1=0x7f0a0007;
+        public static final int item_comment2=0x7f0a0008;
+        public static final int item_main_image=0x7f0a0003;
+        public static final int item_name=0x7f0a0005;
+        public static final int item_price=0x7f0a0006;
+        public static final int like_button=0x7f0a000e;
+        public static final int listview=0x7f0a000a;
+        public static final int menu_settings=0x7f0a001a;
+        public static final int mygallery=0x7f0a0004;
+        public static final int name=0x7f0a0018;
+        public static final int price=0x7f0a0019;
+        public static final int saveButton=0x7f0a0001;
+        public static final int share_button=0x7f0a0010;
+        public static final int shop_image=0x7f0a000b;
+        public static final int spot_title=0x7f0a0013;
+        public static final int spotlight_image1=0x7f0a0015;
+        public static final int spotlight_image2=0x7f0a0016;
+        public static final int spotlight_image3=0x7f0a0017;
+        public static final int staggeredGridView1=0x7f0a0012;
+        public static final int title=0x7f0a000c;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int activity_view_menu=0x7f030001;
-        public static final int row_spotlight=0x7f030002;
-        public static final int row_staggered_demo=0x7f030003;
+        public static final int activity_detail_item=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_view_menu=0x7f030002;
+        public static final int row_spotlight=0x7f030003;
+        public static final int row_staggered_demo=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
     }
     public static final class raw {
-        public static final int banner=0x7f040000;
-        public static final int checkin=0x7f040001;
-        public static final int like=0x7f040002;
-        public static final int no=0x7f040003;
-        public static final int sample=0x7f040004;
-        public static final int shop1=0x7f040005;
-        public static final int shop2=0x7f040006;
-        public static final int shop3=0x7f040007;
-        public static final int shop4=0x7f040008;
+        public static final int avatar=0x7f040000;
+        public static final int banner=0x7f040001;
+        public static final int checkin=0x7f040002;
+        public static final int item1=0x7f040003;
+        public static final int like=0x7f040004;
+        public static final int no=0x7f040005;
+        public static final int sample=0x7f040006;
+        public static final int shop1=0x7f040007;
+        public static final int shop2=0x7f040008;
+        public static final int shop3=0x7f040009;
+        public static final int shop4=0x7f04000a;
     }
     public static final class string {
         public static final int app_name=0x7f070000;
