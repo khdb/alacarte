@@ -27,9 +27,11 @@ containing a value of this type.
         public static final int numColumns=0x7f010001;
     }
     public static final class color {
+        public static final int background=0x7f050004;
         public static final int black=0x7f050000;
         public static final int green=0x7f050002;
         public static final int red=0x7f050003;
+        public static final int spotlight_item_background=0x7f050005;
         public static final int white=0x7f050001;
     }
     public static final class dimen {
@@ -40,6 +42,7 @@ containing a value of this type.
         public static final int menu_header_boder=0x7f020001;
         public static final int menu_header_border2=0x7f020002;
         public static final int spotlight_background=0x7f020003;
+        public static final int spotlight_item=0x7f020004;
     }
     public static final class id {
         public static final int cancelButton=0x7f0a0002;
@@ -48,25 +51,28 @@ containing a value of this type.
         public static final int contact=0x7f0a000d;
         public static final int footer=0x7f0a0000;
         public static final int imageView1=0x7f0a0009;
-        public static final int infoTxtCredits=0x7f0a0014;
         public static final int item_comment1=0x7f0a0007;
         public static final int item_comment2=0x7f0a0008;
+        public static final int item_linear1=0x7f0a0014;
         public static final int item_main_image=0x7f0a0003;
         public static final int item_name=0x7f0a0005;
         public static final int item_price=0x7f0a0006;
         public static final int like_button=0x7f0a000e;
         public static final int listview=0x7f0a000a;
-        public static final int menu_settings=0x7f0a001a;
+        public static final int menu_settings=0x7f0a001d;
         public static final int mygallery=0x7f0a0004;
-        public static final int name=0x7f0a0018;
-        public static final int price=0x7f0a0019;
+        public static final int name=0x7f0a001b;
+        public static final int price=0x7f0a001c;
         public static final int saveButton=0x7f0a0001;
         public static final int share_button=0x7f0a0010;
         public static final int shop_image=0x7f0a000b;
         public static final int spot_title=0x7f0a0013;
         public static final int spotlight_image1=0x7f0a0015;
-        public static final int spotlight_image2=0x7f0a0016;
-        public static final int spotlight_image3=0x7f0a0017;
+        public static final int spotlight_image2=0x7f0a0017;
+        public static final int spotlight_image3=0x7f0a0019;
+        public static final int spotlight_name1=0x7f0a0016;
+        public static final int spotlight_name2=0x7f0a0018;
+        public static final int spotlight_name3=0x7f0a001a;
         public static final int staggeredGridView1=0x7f0a0012;
         public static final int title=0x7f0a000c;
     }

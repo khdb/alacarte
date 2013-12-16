@@ -3,6 +3,10 @@ package com.example.staggeredgridviewdemo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.LinkedList;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,6 +29,9 @@ import com.khoahuy.model.Item;
 import com.khoahuy.model.Shop;
 import com.origamilabs.library.views.StaggeredGridView;
 import com.origamilabs.library.views.StaggeredGridView.OnItemClickListener;
+import com.parse.ParseInstallation;
+import com.parse.ParsePush;
+import com.parse.ParseQuery;
 
 /**
  * 
@@ -99,6 +106,21 @@ public class ViewMenuActivity extends Activity {
 					gotoDetailItem(position);
 				}
 			});
+			try {
+				ParsePush push = new ParsePush();
+				ParseQuery everyone = ParseInstallation.getQuery();
+				everyone.whereEqualTo("deviceType", "android");
+				push.setQuery(everyone);
+				JSONObject data;
+				data = new JSONObject(
+						"{\"action\": \"com.example.UPDATE_STATUS\", \"name\": \"Vaughn\",\"newsItem\": \"Man bites dog\"}");
+				push.setMessage("Peter đang có mặt tại " + shop.getTitle());
+				//push.setData(data);
+				push.sendInBackground();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		_getLocation();

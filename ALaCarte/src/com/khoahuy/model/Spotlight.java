@@ -2,7 +2,7 @@ package com.khoahuy.model;
 
 public class Spotlight {
 
-	public enum TYPE {
+	public static enum TYPE {
 		HOT, RECOMMEND, FRIEND, COUPON
 	}
 

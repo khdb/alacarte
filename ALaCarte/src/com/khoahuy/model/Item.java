@@ -39,18 +39,18 @@ public class Item {
 
 	public static Item[] getHotItem() {
 		Item[] array = new Item[3];
-		array[0] = new Item("1", "1 set Barbecue Garden", "230.000",
+		array[0] = new Item("1", "Barbecue Garden Set 1", "230.000",
 				"22/6 Nam Ki Khoi Nghia Q.3",
 				"http://media.foody.vn/restaurant/634642104189375000_bbq_220.jpg");
 		array[1] = new Item(
 				"2",
-				"Trai cay to",
+				"Trái cây tô",
 				"20.000",
 				"22-24 Nguyen Van Thu, Q.1",
 				"http://thegioinfc.com:8080/images/food/buffet-toi-tai-golden-central-hotel/buffet_toi_tai_golden_central_hotel_20131125105754855.jpg");
 		array[2] = new Item(
 				"3",
-				"Juice up",
+				"Juice Hỗn hợp",
 				"45.000",
 				"128 Trinh Dinh Trong, Q.Tan Phu",
 				"http://thegioinfc.com:8080/images/food/buffet-toi-tai-golden-central-hotel/buffet_toi_tai_golden_central_hotel_20131125105755721.jpg");
@@ -61,19 +61,19 @@ public class Item {
 		Item[] array = new Item[3];
 		array[0] = new Item(
 				"1",
-				"Lau nuong",
+				"Lẩu nướng",
 				"200.000",
 				"22/6 Nam Ki Khoi Nghia Q.3",
 				"http://thegioinfc.com:8080/images/food/buffet-toi-tai-golden-central-hotel/buffet_toi_tai_golden_central_hotel_2013112510575273.jpg");
 		array[1] = new Item(
 				"2",
-				"Trai cay to",
+				"Tôm nướng",
 				"20.000",
 				"22-24 Nguyen Van Thu, Q.1",
 				"http://media.foody.vn/album/hinh-anh-barbecue-garden-792015-634962138475223750.jpg");
 		array[2] = new Item(
 				"3",
-				"Juice up",
+				"Khoai tây chiên",
 				"45.000",
 				"128 Trinh Dinh Trong, Q.Tan Phu",
 				"http://media.foody.vn/restaurant/foody-ahoy-beer-club-coming-soon--tp-hcm-131016092619_220.jpg");
@@ -91,13 +91,13 @@ public class Item {
 				"http://media.foody.vn/album/resize/foody-kimchi-kimchi-satra-pham-hung-1668718-635216053698532500_cropped_154154.jpg");
 		array[1] = new Item(
 				"2",
-				"Trai cay to",
+				"Sinh tố bơ",
 				"20.000",
 				"22-24 Nguyen Van Thu, Q.1",
 				"http://thegioinfc.com:8080/images/food/buffet-toi-tai-golden-central-hotel/buffet_toi_tai_golden_central_hotel_20131125105754855.jpg");
 		array[2] = new Item(
 				"3",
-				"Juice up",
+				"Capuchino",
 				"45.000",
 				"128 Trinh Dinh Trong, Q.Tan Phu",
 				"http://thegioinfc.com:8080/images/food/buffet-toi-tai-golden-central-hotel/buffet_toi_tai_golden_central_hotel_20131125105755721.jpg");
@@ -109,16 +109,16 @@ public class Item {
 		Item[] array = new Item[3];
 		array[0] = new Item(
 				"1",
-				"Kimchi KimChi",
+				"Sushi cá ngừ",
 				"120.000",
 				"22/6 Nam Ki Khoi Nghia Q.3",
 				"http://media.foody.vn/album/hinh-anh-barbecue-garden-792015-634962138825223750.jpg");
-		array[1] = new Item("2", "Trai cay to", "20.000",
+		array[1] = new Item("2", "Pepsi", "20.000",
 				"22-24 Nguyen Van Thu, Q.1",
 				"http://media.foody.vn/coupon/tpc-pt_300.jpg");
 		array[2] = new Item(
 				"3",
-				"Juice up",
+				"Cafe Balley",
 				"45.000",
 				"128 Trinh Dinh Trong, Q.Tan Phu",
 				"http://media.foody.vn/restaurant/mobile/foody-mobile-casa-del-caffe-office-lunch-coffee-bakery-tp-hcm-131209093852_300.jpg");

@@ -26,6 +26,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
+
 /**
  * An {@link Activity} which handles a broadcast of a new tag that the device
  * just discovered.
@@ -36,14 +41,8 @@ public class HomeActivity extends AbstractActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		ListView listview = (ListView) findViewById(R.id.listview);
-		Spotlight[] array = { Spotlight.getHotSpotlight(),
-				Spotlight.getRecommendSpotlight(),
-				Spotlight.getFriendSpotlight(), Spotlight.getCouponSpotlight() };
-		listview.setAdapter(new SpotLightAdapter(this, array));
-		nfcid = "4ED859AB";
-		processNfcID();
+		
+		ParseAnalytics.trackAppOpened(getIntent());
 	}
 
 	@Override
@@ -64,7 +63,12 @@ public class HomeActivity extends AbstractActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		
+		ListView listview = (ListView) findViewById(R.id.listview);
+		Spotlight[] array = { Spotlight.getHotSpotlight(),
+				Spotlight.getRecommendSpotlight(),
+				Spotlight.getFriendSpotlight(), Spotlight.getCouponSpotlight() };
+		listview.setAdapter(new SpotLightAdapter(this, array));
+
 	}
 
 	@Override

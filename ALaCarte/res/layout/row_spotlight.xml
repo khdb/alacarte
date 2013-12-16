@@ -1,7 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/spotlight_background"
     android:orientation="vertical"
     android:paddingLeft="5sp"
     android:paddingRight="5sp"
@@ -21,7 +20,6 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/infoTxtCredits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -41,10 +39,12 @@
         android:orientation="horizontal" >
 
         <LinearLayout
+            android:id="@+id/item_linear1"
             android:layout_width="0sp"
             android:layout_height="fill_parent"
+            android:layout_marginRight="2sp"
             android:layout_weight="1"
-            android:padding="5sp"
+            android:background="@drawable/spotlight_item"
             android:orientation="vertical" >
 
             <com.example.staggeredgridviewdemo.views.ScaleImageView
@@ -54,16 +54,21 @@
                 android:src="@raw/no" />
 
             <TextView
+                android:id="@+id/spotlight_name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/item_name"/>
+                android:ellipsize="end"
+                android:text="@string/item_name" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="fill_parent"
+            android:layout_marginLeft="2sp"
+            android:layout_marginRight="2sp"
             android:layout_weight="1"
-            android:padding="5sp"
+            android:background="@drawable/spotlight_item"
             android:orientation="vertical" >
 
             <com.example.staggeredgridviewdemo.views.ScaleImageView
@@ -71,18 +76,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@raw/no" />
-            
-                        <TextView
+
+            <TextView
+                android:id="@+id/spotlight_name2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/item_name"/>
+                android:ellipsize="end"
+                android:text="@string/item_name" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0sp"
             android:layout_height="fill_parent"
+            android:layout_marginLeft="2sp"
             android:layout_weight="1"
-            android:padding="5sp"
+            android:background="@drawable/spotlight_item"
             android:orientation="vertical" >
 
             <com.example.staggeredgridviewdemo.views.ScaleImageView
@@ -90,10 +99,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@raw/no" />
+
             <TextView
+                android:id="@+id/spotlight_name3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/item_name"/>
+                android:ellipsize="end"
+                android:text="@string/item_name" />
+
         </LinearLayout>
     </LinearLayout>
 
