@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
@@ -26,6 +29,7 @@ public abstract class AbstractActivity extends Activity {
 	protected AlertDialog mDialog;
 	protected String nfcid;
 
+	public static String CUSTOM_ACTION = "com.example.staggeredgridviewdemo.OPEN_VIEW";
 
 	private static final int ACTION_PREFS = -1;
 
@@ -72,6 +76,7 @@ public abstract class AbstractActivity extends Activity {
 			}
 			mAdapter.enableForegroundDispatch(this, mPendingIntent, null, null);
 		}
+
 	};
 
 	@Override
@@ -81,7 +86,7 @@ public abstract class AbstractActivity extends Activity {
 			mAdapter.disableForegroundDispatch(this);
 		}
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
@@ -124,7 +129,27 @@ public abstract class AbstractActivity extends Activity {
 	@Override
 	public void onNewIntent(Intent intent) {
 		nfcid = "";
-		if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+		Log.d("Huy", "on new intent: " + intent.getAction());
+		boolean isPush = true;
+		if (intent.hasExtra("com.parse.Channel")
+				&& intent.hasExtra("com.parse.Data")) {
+			try {
+				String action = intent.getAction();
+				String channel = intent.getExtras().getString(
+						"com.parse.Channel");
+
+				JSONObject json = new JSONObject(intent.getExtras().getString(
+						"com.parse.Data"));
+				nfcid = json.getString("nfcid");
+				Log.d("Huy", "got action " + action + " on channel " + channel
+						+ " with: nfcid = " + nfcid);
+				isPush = false;
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} else if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
 			nfcid = this.ByteArrayToHexString(intent
 					.getByteArrayExtra(NfcAdapter.EXTRA_ID));
 			Log.i("Huy", "NDEF DISCOVERED = " + nfcid);
@@ -140,7 +165,7 @@ public abstract class AbstractActivity extends Activity {
 			Log.i("Huy", "TECH DISCOVERED = " + nfcid);
 		}
 		setIntent(intent);
-		processNfcID();
+		processNfcID(isPush);
 		// resolveIntent(intent);
 	}
 
@@ -160,6 +185,6 @@ public abstract class AbstractActivity extends Activity {
 		return out;
 	}
 
-	protected abstract void processNfcID();
+	protected abstract void processNfcID(boolean isPush);
 
 }

@@ -92,10 +92,11 @@ public class SpotLightAdapter extends BaseAdapter {
 		text3.setText(sl.getArray()[2].getName());
 
 		if (sl.getType() == Spotlight.TYPE.FRIEND && position == 2) {
-			Log.d("Huy", "Type = " + sl.getType());
+			//Log.d("Huy", "Type = " + sl.getType());
 
 			LinearLayout linearLayout1 = (LinearLayout) vi
 					.findViewById(R.id.item_linear1);
+			//linearLayout1.removeAllViews();
 			loadFriendAvatar(linearLayout1);
 
 		}
@@ -112,7 +113,7 @@ public class SpotLightAdapter extends BaseAdapter {
 		avatarLayout.setOrientation(LinearLayout.HORIZONTAL);
 		String[] urls = randomAvatar();
 		for (String url : urls) {
-			Log.d("Huy", "URL  = " + url);
+			//Log.d("Huy", "URL  = " + url);
 			avatarLayout.addView(insertPhoto(url, mLoader));
 		}
 		linearLayout.addView(avatarLayout);

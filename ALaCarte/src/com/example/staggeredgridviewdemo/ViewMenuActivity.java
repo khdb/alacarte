@@ -32,6 +32,7 @@ import com.origamilabs.library.views.StaggeredGridView.OnItemClickListener;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 /**
  * 
@@ -82,6 +83,7 @@ public class ViewMenuActivity extends Activity {
 		Intent callerIntent = getIntent();
 		Bundle packageFromCaller = callerIntent.getBundleExtra("MyPackage");
 		nfcid = packageFromCaller.getString("nfcid");
+		boolean isPush = packageFromCaller.getBoolean("pushNotification");
 		Shop shop = getAndDisplayNFCITem();
 
 		if (shop != null) {
@@ -105,25 +107,38 @@ public class ViewMenuActivity extends Activity {
 							+ id);
 					gotoDetailItem(position);
 				}
-			});
-			try {
-				ParsePush push = new ParsePush();
-				ParseQuery everyone = ParseInstallation.getQuery();
-				everyone.whereEqualTo("deviceType", "android");
-				push.setQuery(everyone);
-				JSONObject data;
-				data = new JSONObject(
-						"{\"action\": \"com.example.UPDATE_STATUS\", \"name\": \"Vaughn\",\"newsItem\": \"Man bites dog\"}");
-				push.setMessage("Peter đang có mặt tại " + shop.getTitle());
-				//push.setData(data);
-				push.sendInBackground();
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			});			
 		}
-
+		
+		if (isPush){
+			pushNotification(shop.getTitle());
+		}
 		_getLocation();
+	}
+	
+	private void pushNotification(String title){
+		try {
+			
+			ParsePush push = new ParsePush();
+			ParseQuery everyone = ParseInstallation.getQuery();
+			everyone.whereNotEqualTo("objectId", ParseInstallation.getCurrentInstallation().getObjectId());
+			everyone.whereEqualTo("deviceType", "android");
+			push.setQuery(everyone);
+			
+			JSONObject data;
+			String alertStr = "Peter đang có mặt tại " + title;
+			data = new JSONObject(
+					"{\"alert\": \" " + alertStr + "\", \"action\": \"com.example.staggeredgridviewdemo.UPDATE_STATUS\", \"nfcid\": \"" + nfcid + "\"}");
+			// Create time interval
+			long weekInterval = 60*60*24*7; // 1 week
+			push.setExpirationTimeInterval(weekInterval);
+			//push.setMessage("Peter đang có mặt tại " + shop.getTitle());
+			push.setData(data);
+			push.sendInBackground();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
