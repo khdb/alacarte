@@ -98,6 +98,8 @@ containing a value of this type.
         public static final int shop2=0x7f040008;
         public static final int shop3=0x7f040009;
         public static final int shop4=0x7f04000a;
+        public static final int shop5=0x7f04000b;
+        public static final int shop6=0x7f04000c;
     }
     public static final class string {
         public static final int app_name=0x7f070000;

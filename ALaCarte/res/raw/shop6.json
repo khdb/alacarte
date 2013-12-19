@@ -1,0 +1,83 @@
+{
+  "nfcid": "Coffee Bean Bitexco",
+  "title": "Starbuck & Tea Leaf - Bitexco Tower",
+  "address": "2 Hai Trieu,  Q.1,  Hồ Chí Minh",
+  "image":"http://media.foody.vn/restaurant/mobile/foody-mobile-cua-hang-an-uong-176-tp-hcm-131116092553_300.png",
+  "menu": [
+    {
+      "name": "Chè khúc bạch phô mai",
+      "price": "25.000",
+      "image": "http://media.foody.vn/album/resize/foody-starbucks-coffee-rex-hotel-34409-635220053025006250_cropped_320428.JPG"
+    },
+    {
+      "name": "Chocolate Crinkles - Những con mắt",
+      "price": "25.000",
+      "image": "http://media.foody.vn/album/resize/foody-starbucks-coffee-rex-hotel-34404-635220032624537500_cropped_320428.JPG"
+    },
+    {
+      "name": "Salad Địa Trung Hải tươi mát",
+      "price": "125.000",
+      "image": "http://media.foody.vn/album/resize/foody-starbucks-coffee-rex-hotel-287525-635217568420745000_cropped_300300.jpg"
+    },
+    {
+      "name": "Ức gà kẹp phô mai nướng",
+      "price": "45.000",
+      "image": "http://media.foody.vn/album/foody-checkin-starbucks-coffee-rex-hotel-19797-635176349018121250.JPG"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "30.000",
+      "image": "http://media.foody.vn/album/resize/foody-starbucks-pham-hong-thai-1907777-635187307857977500_cropped_150150.JPG"
+    },
+    {
+      "name": "Ức gà kẹp phô mai nướng",
+      "price": "70.000",
+      "image": "http://media.foody.vn/album/635170201162318750_53281186_VEuZHqhAsJM0EqKRyKL7ExsMAVdcrQnpVyIRRNJDpts.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "25.000",
+      "image": "http://media.foody.vn/album/resize/foody-the-coffee-bean-tea-leaf-bitexco-1706132-635170884120841250_cropped_150150.jpg"
+    },
+    {
+      "name": "Chân giò hun khói cuộn xoài xanh",
+      "price": "150.000",
+      "image": "http://media.foody.vn/album/resize/635170201161693750_49108783_r1zoYArKsnlJulviVnad9d3rWMtmYxEw5FfVh3Norls_cropped_150150.jpg"
+    },
+    {
+      "name": "Xôi đậu xanh sườn nướng",
+      "price": "135.000",
+      "image": "http://media.foody.vn/album/resize/635170201161381250_45155374_uDPgs7x4GQ6J9dTXveuK_IZ8CUoFrN8Ui2O2s51KoQs_cropped_150150.jpg"
+    },
+    {
+      "name": "Chè khúc bạch phô mai",
+      "price": "30.000",
+      "image": "http://media.foody.vn/album/resize/635170201160131250_37850886_LCFplRD7Ge2YyUBNkeXbZYfTujxIlA6t7BvWHdrWu4o_cropped_150150.jpg"
+    },
+    {
+      "name": "Nước cam mật ong",
+      "price": "50.000",
+      "image": "http://media.foody.vn/album/resize/foody--23000-635132149664972500_cropped_150150.JPG"
+    },
+    {
+      "name": "Chè khúc bạch phô mai",
+      "price": "30.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-bbq-hai-san-bat-song-tai-ho-nha-hang-icon/buffet_bbq_hai_san_bat_song_tai_ho_nha_hang_icon_20131126161214905.jpg"
+    },
+    {
+      "name": "Chân giò hun khói cuộn xoài xanh",
+      "price": "45.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-bbq-hai-san-bat-song-tai-ho-nha-hang-icon/buffet_bbq_hai_san_bat_song_tai_ho_nha_hang_icon_20131126161215901.jpg"
+    },
+    {
+      "name": "Chè khúc bạch phô mai",
+      "price": "45.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-bbq-hai-san-bat-song-tai-ho-nha-hang-icon/buffet_bbq_hai_san_bat_song_tai_ho_nha_hang_icon_20131126161216854.jpg"
+    },
+    {
+      "name": "Ức gà kẹp phô mai nướng",
+      "price": "30.000",
+      "image": "http://thegioinfc.com:8080/images/food/buffet-bbq-hai-san-bat-song-tai-ho-nha-hang-icon/buffet_bbq_hai_san_bat_song_tai_ho_nha_hang_icon_20131126161217860.jpg"
+    }
+  ]
+}

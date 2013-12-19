@@ -107,32 +107,36 @@ public class ViewMenuActivity extends Activity {
 							+ id);
 					gotoDetailItem(position);
 				}
-			});			
+			});
 		}
-		
-		if (isPush){
+
+		if (isPush) {
 			pushNotification(shop.getTitle());
 		}
 		_getLocation();
 	}
-	
-	private void pushNotification(String title){
+
+	private void pushNotification(String title) {
 		try {
-			
+
 			ParsePush push = new ParsePush();
 			ParseQuery everyone = ParseInstallation.getQuery();
-			everyone.whereNotEqualTo("objectId", ParseInstallation.getCurrentInstallation().getObjectId());
+			everyone.whereNotEqualTo("objectId", ParseInstallation
+					.getCurrentInstallation().getObjectId());
 			everyone.whereEqualTo("deviceType", "android");
 			push.setQuery(everyone);
-			
+
 			JSONObject data;
 			String alertStr = "Peter đang có mặt tại " + title;
 			data = new JSONObject(
-					"{\"alert\": \" " + alertStr + "\", \"action\": \"com.example.staggeredgridviewdemo.UPDATE_STATUS\", \"nfcid\": \"" + nfcid + "\"}");
+					"{\"alert\": \" "
+							+ alertStr
+							+ "\", \"action\": \"com.example.staggeredgridviewdemo.UPDATE_STATUS\", \"nfcid\": \""
+							+ nfcid + "\"}");
 			// Create time interval
-			long weekInterval = 60*60*24*7; // 1 week
+			long weekInterval = 60 * 60 * 24 * 7; // 1 week
 			push.setExpirationTimeInterval(weekInterval);
-			//push.setMessage("Peter đang có mặt tại " + shop.getTitle());
+			// push.setMessage("Peter đang có mặt tại " + shop.getTitle());
 			push.setData(data);
 			push.sendInBackground();
 		} catch (JSONException e) {
@@ -211,6 +215,10 @@ public class ViewMenuActivity extends Activity {
 			in = this.getResources().openRawResource(R.raw.shop3);
 		} else if ("6e293ba9".equals(nfcid)) {
 			in = this.getResources().openRawResource(R.raw.shop4);
+		} else if ("0492ed4abc2b80".equals(nfcid)) {
+			in = this.getResources().openRawResource(R.raw.shop5);
+		} else if ("045be74abc2b80".equals(nfcid)) {
+			in = this.getResources().openRawResource(R.raw.shop6);
 		} else {
 			Toast.makeText(this, "This location not support.",
 					Toast.LENGTH_SHORT).show();

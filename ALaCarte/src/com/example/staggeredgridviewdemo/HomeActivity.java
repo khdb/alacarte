@@ -140,7 +140,7 @@ public class HomeActivity extends AbstractActivity {
 			}
 			myIntent.putExtra("MyPackage", bundle);
 			startActivity(myIntent);
-			finish();
+			//finish();
 		}
 	}
 }
