@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">A la carte Demo</string>
+    <string name="app_id">1404291006478707</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="error">Erorr</string>
@@ -18,5 +19,7 @@
 	<string name="recommendMenu">Gợi ý theo sở thích của bạn</string>
 	<string name="friendMenu">Bạn bè của bạn đã ăn/uống ở đâu?</string>
 	<string name="promotionMenu">Địa điểm giảm giá/khuyến mãi</string>
+	
+	<string name="share">Share</string>
 </resources>
 

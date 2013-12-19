@@ -6,26 +6,44 @@
     android:background="@color/background"
     android:orientation="vertical"
     tools:context=".HomeActivity" >
-    
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@raw/banner" />
-     <TextView
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp" />
+
+    <Button
+        android:id="@+id/shareButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/readyToScan"
+        android:layout_marginTop="30dp"
         android:gravity="center"
+        android:text="@string/share"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/readyToScan"
         android:textSize="30sp"
         android:textStyle="bold" />
-	
-     <ListView
+
+    <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:layout_marginBottom="20.0sp">
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="20.0sp" >
     </ListView>
 
 </LinearLayout>
