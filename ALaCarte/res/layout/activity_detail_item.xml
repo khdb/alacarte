@@ -15,21 +15,21 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/saveButton"
+            android:id="@+id/item_like_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Like" />
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/item_share_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Share" />
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/item_comment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

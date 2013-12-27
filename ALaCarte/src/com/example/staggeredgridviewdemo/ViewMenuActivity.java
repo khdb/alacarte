@@ -3,7 +3,10 @@ package com.example.staggeredgridviewdemo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,16 +18,25 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.staggeredgridviewdemo.loader.ImageLoader;
 import com.example.staggeredgridviewdemo.views.ScaleImageView;
+import com.facebook.FacebookRequestError;
+import com.facebook.HttpMethod;
+import com.facebook.Request;
+import com.facebook.RequestAsyncTask;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
 import com.khoahuy.model.Item;
 import com.khoahuy.model.Shop;
 import com.origamilabs.library.views.StaggeredGridView;
@@ -44,15 +56,44 @@ import com.parse.ParseUser;
  * @author Maurycy Wojtowicz
  * 
  */
-public class ViewMenuActivity extends Activity {
+public class ViewMenuActivity extends FacebookActivity {
 
 	/**
 	 * Images are taken by Romain Guy ! He's a great photographer as well as a
 	 * great programmer. http://www.flickr.com/photos/romainguy
 	 */
 
+	private Button likeButton;
+	private Button shareButton;
+	private Button commentButton;
+	private Button checkinButton;
+
+	private static final List<String> PERMISSIONS = Arrays
+			.asList("publish_actions");
+	private static final String PENDING_PUBLISH_KEY = "pendingPublishReauthorization";
+	private boolean pendingPublishReauthorization = false;
+
 	private String nfcid;
+	private Shop shop;
 	private Item[] arrayItem;
+
+	@Override
+	protected void onSessionStateChange(Session session, SessionState state,
+			Exception exception) {
+		// TODO Auto-generated method stub
+		super.onSessionStateChange(session, state, exception);
+		if (state.isOpened()) {
+			likeButton.setVisibility(View.VISIBLE);
+			shareButton.setVisibility(View.VISIBLE);
+			commentButton.setVisibility(View.VISIBLE);
+			checkinButton.setVisibility(View.VISIBLE);
+		} else if (state.isClosed()) {
+			likeButton.setVisibility(View.INVISIBLE);
+			shareButton.setVisibility(View.INVISIBLE);
+			commentButton.setVisibility(View.INVISIBLE);
+			checkinButton.setVisibility(View.INVISIBLE);
+		}
+	}
 
 	/**
 	 * This will not work so great since the heights of the imageViews are
@@ -67,6 +108,34 @@ public class ViewMenuActivity extends Activity {
 
 		StaggeredGridView gridView = (StaggeredGridView) this
 				.findViewById(R.id.staggeredGridView1);
+
+		// Facebook control
+		likeButton = (Button) this.findViewById(R.id.menu_like_button);
+		shareButton = (Button) this.findViewById(R.id.menu_share_button);
+		commentButton = (Button) this.findViewById(R.id.menu_comment_button);
+		checkinButton = (Button) this.findViewById(R.id.menu_checkin_button);
+		
+		likeButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				likePage();
+			}
+		});
+
+		shareButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				publishStory();
+			}
+		});
+
+		checkinButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				checkInStorty();
+			}
+		});
 
 		TextView titleTextView = (TextView) this.findViewById(R.id.title);
 		TextView contactTextView = (TextView) this.findViewById(R.id.contact);
@@ -84,7 +153,7 @@ public class ViewMenuActivity extends Activity {
 		Bundle packageFromCaller = callerIntent.getBundleExtra("MyPackage");
 		nfcid = packageFromCaller.getString("nfcid");
 		boolean isPush = packageFromCaller.getBoolean("pushNotification");
-		Shop shop = getAndDisplayNFCITem();
+		shop = getAndDisplayNFCITem();
 
 		if (shop != null) {
 			titleTextView.setText(shop.getTitle());
@@ -114,6 +183,19 @@ public class ViewMenuActivity extends Activity {
 			pushNotification(shop.getTitle());
 		}
 		_getLocation();
+
+		if (savedInstanceState != null) {
+			pendingPublishReauthorization = savedInstanceState.getBoolean(
+					PENDING_PUBLISH_KEY, false);
+		}
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		outState.putBoolean(PENDING_PUBLISH_KEY, pendingPublishReauthorization);
+		super.onSaveInstanceState(outState);
+
 	}
 
 	private void pushNotification(String title) {
@@ -143,13 +225,6 @@ public class ViewMenuActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-
 	}
 
 	private void gotoDetailItem(int position) {
@@ -253,4 +328,136 @@ public class ViewMenuActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
+
+	// Facebook button:
+
+	private boolean isSubsetOf(Collection<String> subset,
+			Collection<String> superset) {
+		for (String string : subset) {
+			if (!superset.contains(string)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private void likePage(){
+		//String pageid = "141148276777";
+		try{
+
+			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/141148276777")); 
+			startActivity(intent);
+
+			}catch(Exception e){
+
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/141148276777")));
+			}
+	}
+
+	private void checkInStorty() {
+		Session session = Session.getActiveSession();
+		if (session != null) {
+			List<String> permissions = session.getPermissions();
+			if (!isSubsetOf(PERMISSIONS, permissions)) {
+				pendingPublishReauthorization = true;
+				Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
+						this, PERMISSIONS);
+				session.requestNewPublishPermissions(newPermissionsRequest);
+				return;
+			}
+
+			Bundle postParams = new Bundle();
+			postParams.putString("restaurant",
+					"http://samples.ogp.me/440002909390231");
+			Request.Callback callback = new Request.Callback() {
+				@Override
+				public void onCompleted(Response response) {
+					// TODO Auto-generated method stub
+					if (response.getGraphObject() == null) {
+						displayToast("Error when posting");
+						Log.d("Huy", response.toString());
+						return;
+					}
+					JSONObject graphResponse = response.getGraphObject()
+							.getInnerJSONObject();
+					String postId = null;
+					try {
+						postId = graphResponse.getString("id");
+					} catch (JSONException e) {
+						Log.i("Huy", "JSON error " + e.getMessage());
+					}
+					FacebookRequestError error = response.getError();
+					if (error != null) {
+						displayToast(error.getErrorMessage());
+					} else {
+						displayToast(postId.toString());
+					}
+				}
+			};
+
+			Request request = new Request(session, "me/com_khoahuy:eat_a_meal",
+					postParams, HttpMethod.POST, callback);
+			// Log.d("Huy",request.getRestMethod());
+			Log.d("Huy", request.getGraphPath());
+			RequestAsyncTask task = new RequestAsyncTask(request);
+			task.execute();
+		}
+	}
+
+	private void publishStory() {
+		Session session = Session.getActiveSession();
+		if (session != null) {
+
+			// Check for publish permissions
+			List<String> permissions = session.getPermissions();
+			if (!isSubsetOf(PERMISSIONS, permissions)) {
+				pendingPublishReauthorization = true;
+				Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
+						this, PERMISSIONS);
+				session.requestNewPublishPermissions(newPermissionsRequest);
+				return;
+			}
+
+			Bundle postParams = new Bundle();
+			postParams.putString("name", shop.getTitle());
+			postParams.putString("caption", shop.getAddress());
+			postParams.putString("description", shop.getPhone());
+			postParams.putString("link", shop.getImagePath());
+			postParams.putString("picture", shop.getImagePath());
+
+			Request.Callback callback = new Request.Callback() {
+				@Override
+				public void onCompleted(Response response) {
+					// TODO Auto-generated method stub
+					if (response.getGraphObject() == null) {
+						displayToast("Error when posting");
+						return;
+					}
+					JSONObject graphResponse = response.getGraphObject()
+							.getInnerJSONObject();
+					String postId = null;
+					try {
+						postId = graphResponse.getString("id");
+					} catch (JSONException e) {
+						Log.i("Huy", "JSON error " + e.getMessage());
+					}
+					FacebookRequestError error = response.getError();
+					if (error != null) {
+						displayToast(error.getErrorMessage());
+					} else {
+						displayToast(postId.toString());
+					}
+				}
+			};
+
+			Request request = new Request(session, "me/feed", postParams,
+					HttpMethod.POST, callback);
+			// Log.d("Huy",request.getRestMethod());
+			Log.d("Huy", request.getGraphPath());
+			RequestAsyncTask task = new RequestAsyncTask(request);
+			task.execute();
+		}
+
+	}
+
 }

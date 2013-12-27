@@ -58,27 +58,16 @@ public class HomeActivity extends AbstractActivity {
 	private static String TAG = "Huy";
 	private UiLifecycleHelper uiHelper;
 	private GraphUser user;
-	private Button shareButton;
 
-	private static final List<String> PERMISSIONS = Arrays
-			.asList("publish_actions");
-	private static final String PENDING_PUBLISH_KEY = "pendingPublishReauthorization";
-	private boolean pendingPublishReauthorization = false;
+	
 
 	private void onSessionStateChange(Session session, SessionState state,
 			Exception exception) {
 		if (state.isOpened()) {
 			Log.i(TAG, "Logged in...");
-			shareButton.setVisibility(View.VISIBLE);
-			if (pendingPublishReauthorization
-					&& state.equals(SessionState.OPENED_TOKEN_UPDATED)) {
-				pendingPublishReauthorization = false;
-				publishStory();
-			}
 
 		} else if (state.isClosed()) {
 			Log.i(TAG, "Logged out...");
-			shareButton.setVisibility(View.INVISIBLE);
 		}
 	}
 
@@ -97,13 +86,7 @@ public class HomeActivity extends AbstractActivity {
 
 		uiHelper = new UiLifecycleHelper(this, callback);
 		uiHelper.onCreate(savedInstanceState);
-		shareButton = (Button) this.findViewById(R.id.shareButton);
-		shareButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				publishStory();
-			}
-		});
+		
 		LoginButton authButton = (LoginButton) this
 				.findViewById(R.id.authButton);
 		// authButton.set(this);
@@ -124,81 +107,10 @@ public class HomeActivity extends AbstractActivity {
 					}
 				});
 
-		if (savedInstanceState != null) {
-			pendingPublishReauthorization = savedInstanceState.getBoolean(
-					PENDING_PUBLISH_KEY, false);
-		}
 
 		ParseAnalytics.trackAppOpened(getIntent());
-	}
-
-	private boolean isSubsetOf(Collection<String> subset,
-			Collection<String> superset) {
-		for (String string : subset) {
-			if (!superset.contains(string)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	private void publishStory() {
-		Session session = Session.getActiveSession();
-
-		if (session != null) {
-
-			// Check for publish permissions
-			List<String> permissions = session.getPermissions();
-			if (!isSubsetOf(PERMISSIONS, permissions)) {
-				pendingPublishReauthorization = true;
-				Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(
-						this, PERMISSIONS);
-				session.requestNewPublishPermissions(newPermissionsRequest);
-				return;
-			}
-
-			Bundle postParams = new Bundle();
-			postParams.putString("name", "Facebook SDK for Android");
-			postParams.putString("caption",
-					"Build great social apps and get more installs.");
-			postParams
-					.putString(
-							"description",
-							"The Facebook SDK for Android makes it easier and faster to develop Facebook integrated Android apps.");
-			postParams.putString("link",
-					"https://developers.facebook.com/android");
-			postParams
-					.putString("picture",
-							"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png");
-
-			Request.Callback callback = new Request.Callback() {
-				@Override
-				public void onCompleted(Response response) {
-					// TODO Auto-generated method stub
-					JSONObject graphResponse = response.getGraphObject()
-							.getInnerJSONObject();
-					String postId = null;
-					try {
-						postId = graphResponse.getString("id");
-					} catch (JSONException e) {
-						Log.i(TAG, "JSON error " + e.getMessage());
-					}
-					FacebookRequestError error = response.getError();
-					if (error != null) {
-						displayToast(error.getErrorMessage());
-					} else {
-						displayToast(postId.toString());
-					}
-				}
-			};
-
-			Request request = new Request(session, "me/feed", postParams,
-					HttpMethod.POST, callback);
-
-			RequestAsyncTask task = new RequestAsyncTask(request);
-			task.execute();
-		}
-
+		nfcid = "04753f52bc2b80";
+		processNfcID(false);
 	}
 
 	private void displayToast(String str) {
@@ -210,7 +122,6 @@ public class HomeActivity extends AbstractActivity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putBoolean(PENDING_PUBLISH_KEY, pendingPublishReauthorization);
 		uiHelper.onSaveInstanceState(outState);
 	}
 

@@ -44,7 +44,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/like_button"
+            android:id="@+id/menu_like_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -54,31 +54,31 @@
         </Button>
 
         <Button
-            android:id="@+id/checkin_button"
+            android:id="@+id/menu_checkin_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/shop_image"
-            android:layout_toRightOf="@+id/like_button"
+            android:layout_toRightOf="@+id/menu_like_button"
             android:text="Checkin"
             android:textSize="14sp" >
         </Button>
 
         <Button
-            android:id="@+id/share_button"
+            android:id="@+id/menu_share_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/shop_image"
-            android:layout_toRightOf="@+id/checkin_button"
+            android:layout_toRightOf="@+id/menu_checkin_button"
             android:text="Share"
             android:textSize="14sp" >
         </Button>
 
         <Button
-            android:id="@+id/comment_button"
+            android:id="@+id/menu_comment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/shop_image"
-            android:layout_toRightOf="@+id/share_button"
+            android:layout_toRightOf="@+id/menu_share_button"
             android:text="Comment"
             android:textSize="14sp" >
         </Button>

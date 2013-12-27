@@ -10,16 +10,16 @@
     <string name="nfc_disabled">NFC is disabled</string>
     <string name="item_name">Title here</string>
     <string name="welcome">Welcome to a la carte. Ready to scan.</string>
-	<string name="item_desc">This Github project provides a pretty near clone of what Google was trying to do with their native staggered GridView. </string>
-	<string name="item_price">00.00 VND</string>
-	<string name="readyToScan">Sẵn sàng quẹt thẻ</string>
-	<string name="seemore">XEM THÊM</string>
-	
-	<string name="hotMenu">Cơn sốt trong tuần</string>
-	<string name="recommendMenu">Gợi ý theo sở thích của bạn</string>
-	<string name="friendMenu">Bạn bè của bạn đã ăn/uống ở đâu?</string>
-	<string name="promotionMenu">Địa điểm giảm giá/khuyến mãi</string>
-	
-	<string name="share">Share</string>
-</resources>
+    <string name="item_desc">This Github project provides a pretty near clone of what Google was trying to do with their native staggered GridView. </string>
+    <string name="item_price">00.00 VND</string>
+    <string name="readyToScan">Sẵn sàng quẹt thẻ</string>
+    <string name="seemore">XEM THÊM</string>
+    <string name="hotMenu">Cơn sốt trong tuần</string>
+    <string name="recommendMenu">Gợi ý theo sở thích của bạn</string>
+    <string name="friendMenu">Bạn bè của bạn đã ăn/uống ở đâu?</string>
+    <string name="promotionMenu">Địa điểm giảm giá/khuyến mãi</string>
+    <string name="share">Share</string>
+    <string name="action_location">Where are you?</string>
+    <string name="action_location_default">Select one</string>
 
+</resources>
