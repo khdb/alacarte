@@ -17,26 +17,23 @@
 package com.example.staggeredgridviewdemo;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.facebook.FacebookRequestError;
-import com.facebook.HttpMethod;
 import com.facebook.Request;
-import com.facebook.RequestAsyncTask;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
-import com.facebook.widget.LoginButton;
 import com.khoahuy.model.Spotlight;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,7 +44,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseInstallation;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 /**
  * An {@link Activity} which handles a broadcast of a new tag that the device
@@ -57,17 +60,22 @@ public class HomeActivity extends AbstractActivity {
 
 	private static String TAG = "Huy";
 	private UiLifecycleHelper uiHelper;
-	private GraphUser user;
 
-	
+	private Button loginButton;
+	private Button logoutButton;
+	private Dialog progressDialog;
 
 	private void onSessionStateChange(Session session, SessionState state,
 			Exception exception) {
 		if (state.isOpened()) {
 			Log.i(TAG, "Logged in...");
+			// loginButton.setVisibility(Button.INVISIBLE);
+			// logoutButton.setVisibility(Button.VISIBLE);
 
 		} else if (state.isClosed()) {
 			Log.i(TAG, "Logged out...");
+			// loginButton.setVisibility(Button.VISIBLE);
+			// logoutButton.setVisibility(Button.INVISIBLE);
 		}
 	}
 
@@ -83,40 +91,103 @@ public class HomeActivity extends AbstractActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		ParseAnalytics.trackAppOpened(getIntent());
 		uiHelper = new UiLifecycleHelper(this, callback);
 		uiHelper.onCreate(savedInstanceState);
-		
-		LoginButton authButton = (LoginButton) this
-				.findViewById(R.id.authButton);
-		// authButton.set(this);
-		authButton.setReadPermissions(Arrays
-				.asList("user_likes", "user_status"));
-		authButton
-				.setUserInfoChangedCallback(new LoginButton.UserInfoChangedCallback() {
-					@Override
-					public void onUserInfoFetched(GraphUser user) {
-						HomeActivity.this.user = user;
-						if (user != null)
-							displayToast("Facebook login: Welcome "
-									+ user.getFirstName() + " "
-									+ user.getLastName());
-						// It's possible that we were waiting for this.user to
-						// be populated in order to post a
-						// status update.
-					}
-				});
 
+		loginButton = (Button) findViewById(R.id.loginButton);
+		logoutButton = (Button) findViewById(R.id.logoutButton);
+		loginButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onLoginButtonClicked();
+			}
+		});
 
-		ParseAnalytics.trackAppOpened(getIntent());
-		nfcid = "04753f52bc2b80";
-		processNfcID(false);
+		logoutButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onLogoutButtonClicked();
+			}
+		});
+
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
+			// Go to the user info activity
+			loginButton.setVisibility(Button.INVISIBLE);
+			logoutButton.setVisibility(Button.VISIBLE);
+			getFacebookIdInBackground();
+		}
+		// nfcid = "04753f52bc2b80";
+		// processNfcID(false);
 	}
 
+	private void onLogoutButtonClicked() {
+		Log.d("Huy", "Logout clicked");
+		// Log the user out
+		ParseFacebookUtils.getSession().closeAndClearTokenInformation();
+		ParseUser.logOut();
+		loginButton.setVisibility(Button.VISIBLE);
+		logoutButton.setVisibility(Button.INVISIBLE);
+		// Go to the login view
+		// startLoginActivity();
+	}
+
+	private void onLoginButtonClicked() {
+		HomeActivity.this.progressDialog = ProgressDialog.show(
+				HomeActivity.this, "", "Logging in...", true);
+		List<String> permissions = Arrays.asList("basic_info", "user_about_me",
+				"user_relationships", "user_birthday", "user_location");
+		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
+			@Override
+			public void done(ParseUser user, ParseException err) {
+				HomeActivity.this.progressDialog.dismiss();
+				if (user == null) {
+					Log.d(MainApplication.TAG,
+							"Uh oh. The user cancelled the Facebook login.");
+					return;
+				} else if (user.isNew()) {
+					Log.d(MainApplication.TAG,
+							"User signed up and logged in through Facebook!");
+					// showUserDetailsActivity();
+				} else {
+					Log.d(MainApplication.TAG,
+							"User logged in through Facebook!");
+					// showUserDetailsActivity();
+				}
+				loginButton.setVisibility(Button.INVISIBLE);
+				logoutButton.setVisibility(Button.VISIBLE);
+				getFacebookIdInBackground();
+			}
+		});
+	}
+
+	private void getFacebookIdInBackground() {
+
+		Request.newMeRequest(ParseFacebookUtils.getSession(),
+				new Request.GraphUserCallback() {
+
+					@Override
+					public void onCompleted(GraphUser user, Response response) {
+						// TODO Auto-generated method stub
+						if (user != null) {
+							ParseUser.getCurrentUser()
+									.put("fbId", user.getId());
+							ParseUser.getCurrentUser().saveInBackground();
+							ParseInstallation inst = ParseInstallation.getCurrentInstallation();
+							inst.put("user", ParseUser.getCurrentUser());
+							inst.saveInBackground();
+							Log.d("Huy", "Save fbID to PARSE: " + user.getId());
+						}
+
+					}
+				}).executeAsync();
+
+	}
+
+
 	private void displayToast(String str) {
-		if (user != null) {
-			Toast.makeText(this, str, Toast.LENGTH_LONG).show();
-		}
+		Toast.makeText(this, str, Toast.LENGTH_LONG).show();
 	}
 
 	@Override
@@ -204,6 +275,7 @@ public class HomeActivity extends AbstractActivity {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		uiHelper.onActivityResult(requestCode, resultCode, data);
+		ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
 	}
 
 	@Override

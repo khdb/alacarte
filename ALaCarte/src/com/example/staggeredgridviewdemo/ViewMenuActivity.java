@@ -3,11 +3,13 @@ package com.example.staggeredgridviewdemo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,11 +39,15 @@ import com.facebook.RequestAsyncTask;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
+import com.facebook.model.GraphObject;
 import com.khoahuy.model.Item;
 import com.khoahuy.model.Shop;
 import com.origamilabs.library.views.StaggeredGridView;
 import com.origamilabs.library.views.StaggeredGridView.OnItemClickListener;
+import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
 import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -114,7 +120,7 @@ public class ViewMenuActivity extends FacebookActivity {
 		shareButton = (Button) this.findViewById(R.id.menu_share_button);
 		commentButton = (Button) this.findViewById(R.id.menu_comment_button);
 		checkinButton = (Button) this.findViewById(R.id.menu_checkin_button);
-		
+
 		likeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -178,9 +184,12 @@ public class ViewMenuActivity extends FacebookActivity {
 				}
 			});
 		}
-
-		if (isPush) {
-			pushNotification(shop.getTitle());
+		if (ParseFacebookUtils.getSession()!= null)
+		{
+			if (isPush && ParseFacebookUtils.getSession().isOpened()) {
+				//pushNotification(shop.getTitle());
+				pushNotification2();
+			}
 		}
 		_getLocation();
 
@@ -198,6 +207,71 @@ public class ViewMenuActivity extends FacebookActivity {
 
 	}
 
+	private void pushNotification2() {
+		String fqlQuery = "SELECT uid,name,pic_square FROM user WHERE uid IN "
+				+ "(SELECT uid2 FROM friend WHERE uid1 = me())";
+		Bundle params = new Bundle();
+		params.putString("q", fqlQuery);
+		Session session = Session.getActiveSession();
+		Request request = new Request(session, "/fql", params, HttpMethod.GET,
+				new Request.Callback() {
+					public void onCompleted(Response response) {
+						Log.i(MainApplication.TAG,
+								"Result: " + response.toString());
+
+						try {
+							GraphObject graphObject = response.getGraphObject();
+							JSONObject jsonObject = graphObject
+									.getInnerJSONObject();
+							//Log.d("data", jsonObject.toString(0));
+							List<String> friendsList = new ArrayList<String>();
+							JSONArray array = jsonObject.getJSONArray("data");
+							for (int i = 0; i < array.length(); i++) {
+								JSONObject friend = array.getJSONObject(i);
+								friendsList.add(friend.getString("uid"));
+							}
+							
+							ParseQuery<ParseUser> friendQuery = ParseUser
+									.getQuery();
+							friendQuery.whereContainedIn("fbId", friendsList);
+							pushNow(shop.getTitle(), friendQuery);
+						} catch (JSONException e) {
+							e.printStackTrace();
+						} 
+					}
+				});
+		Request.executeBatchAsync(request);
+	}
+	
+	private void pushNow(String title, ParseQuery<ParseUser> friendQuery){
+		try {
+			ParsePush push = new ParsePush();
+			
+			ParseQuery<ParseInstallation> filterQuery = ParseInstallation.getQuery();
+			filterQuery.whereMatchesQuery("user", friendQuery);
+			//friendQuery.whereNotEqualTo("objectId", ParseUser.getCurrentUser().getObjectId());
+			filterQuery.whereEqualTo("deviceType", "android");
+			push.setQuery(filterQuery);
+
+			JSONObject data;
+			String alertStr = "Peter đang có mặt tại " + title;
+			data = new JSONObject(
+					"{\"alert\": \" "
+							+ alertStr
+							+ "\", \"action\": \"com.example.staggeredgridviewdemo.UPDATE_STATUS\", \"nfcid\": \""
+							+ nfcid + "\"}");
+			// Create time interval
+			long weekInterval = 60 * 60 * 24 * 7; // 1 week
+			push.setExpirationTimeInterval(weekInterval);
+			// push.setMessage("Peter đang có mặt tại " + shop.getTitle());
+			push.setData(data);
+			push.sendInBackground();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	private void pushNotification(String title) {
 		try {
 
@@ -213,7 +287,7 @@ public class ViewMenuActivity extends FacebookActivity {
 			data = new JSONObject(
 					"{\"alert\": \" "
 							+ alertStr
-							+ "\", \"action\": \"com.example.staggeredgridviewdemo.UPDATE_STATUS\", \"nfcid\": \""
+								+ "\", \"action\": \"com.example.staggeredgridviewdemo.UPDATE_STATUS\", \"nfcid\": \""
 							+ nfcid + "\"}");
 			// Create time interval
 			long weekInterval = 60 * 60 * 24 * 7; // 1 week
@@ -283,7 +357,7 @@ public class ViewMenuActivity extends FacebookActivity {
 		InputStream in;
 		nfcid = nfcid.toLowerCase();
 		if ("946e33dd".equals(nfcid)) {
-			in = this.getResources().openRawResource(R.raw.shop1);
+			in = this.getResources().openRawResource(R.raw.shop4);
 		} else if ("04753f52bc2b80".equals(nfcid)) {
 			in = this.getResources().openRawResource(R.raw.shop2);
 		} else if ("4ed859ab".equals(nfcid)) {
@@ -340,18 +414,20 @@ public class ViewMenuActivity extends FacebookActivity {
 		}
 		return true;
 	}
-	
-	private void likePage(){
-		//String pageid = "141148276777";
-		try{
 
-			Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/141148276777")); 
+	private void likePage() {
+		// String pageid = "141148276777";
+		try {
+
+			Intent intent = new Intent(Intent.ACTION_VIEW,
+					Uri.parse("fb://profile/141148276777"));
 			startActivity(intent);
 
-			}catch(Exception e){
+		} catch (Exception e) {
 
-			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/141148276777")));
-			}
+			startActivity(new Intent(Intent.ACTION_VIEW,
+					Uri.parse("http://www.facebook.com/141148276777")));
+		}
 	}
 
 	private void checkInStorty() {
